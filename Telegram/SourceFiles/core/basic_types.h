@@ -21,6 +21,8 @@ Copyright (c) 2014-2017 John Preston, https://desktop.telegram.org
 #pragma once
 
 #include "base/build_config.h"
+#include "base/unique_function.h"
+
 #include <QLatin1String>
 #include <QString>
 #include <cstdint>
@@ -31,6 +33,9 @@ Copyright (c) 2014-2017 John Preston, https://desktop.telegram.org
 #include <string>
 
 template <typename Type> using not_null = gsl::not_null<Type>;
+
+template <typename Signature>
+using FnMut = base::unique_function<Signature>;
 
 #define qsl(s) QStringLiteral(s)
 #define qstr(s) QLatin1String(s, static_cast<int>(sizeof(s) - 1))
