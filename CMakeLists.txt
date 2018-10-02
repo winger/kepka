@@ -1,6 +1,15 @@
 cmake_minimum_required(VERSION 3.10)
 project(kepka-desktop)
 
+##================================================
+## Build customizations
+##================================================
+option(KEPKA_OPTION_USE_YANDEX_MAPS "Use Yandex.Maps static API for locations (instead Google Maps)" OFF)
+
+if(KEPKA_OPTION_USE_YANDEX_MAPS)
+	add_definitions("-DKEPKA_USE_YANDEX_MAPS")
+endif()
+
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/modules/")
 include(CTest)
 
